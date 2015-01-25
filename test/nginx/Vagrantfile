@@ -1,0 +1,17 @@
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  
+  config.vm.define 'machine1' do |machine|
+    machine.vm.box = "hashicorp/precise64"  
+    machine.vm.hostname = "machine1"
+    config.vm.network "forwarded_port", guest: 80, host: 8080
+    machine.vm.network "private_network", type: "dhcp"
+    
+    machine.vm.provision "ansible" do |ansible|
+      ansible.playbook = "../../nginx/main.yml"
+    end
+
+  end
+
+end
