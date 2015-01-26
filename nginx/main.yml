@@ -1,7 +1,6 @@
 ---
 # installs nginx on all hosts
-- name: install nginx
-  hosts: all
+- hosts: all
   sudo: yes
   roles:
     - web
