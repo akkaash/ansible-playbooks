@@ -1,6 +1,4 @@
 ---
-- name: copy .my.cnf
-  template: src=.my.cnf dest=/root/.my.cnf owner=root mode=0600
 
 - name: add password to root account
   mysql_user: name=root host={{ item }} password={{ mysql_root_password }} priv=*.*:ALL,GRANT login_user=root log
@@ -9,6 +7,9 @@
     - 127.0.0.1
     - ::1
     - localhost
+
+- name: copy .my.cnf
+  template: src=.my.cnf dest=/root/.my.cnf owner=root mode=0600
 
 - name: remove anonymous users
   mysql_user: name='' host={{ item }} state=absent login_user=root login_password={{ mysql_root_password }}
