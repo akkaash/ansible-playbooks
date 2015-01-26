@@ -1,0 +1,21 @@
+---
+- name: update cache
+  apt: update_cache=yes
+
+- name: install mysql
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - mysql-server
+    - python-mysqldb
+    - mysql-client
+
+- name: mysql secure install
+  include: mysql_secure_installation.yml
+  notify:
+    - restart mysql
+
+- name: open db ports
+  command: iptables -I INPUT 1 -p tcp --dport 3306 -j ACCEPT
+  notify:
+    - save iptables
+    - reload firewall
