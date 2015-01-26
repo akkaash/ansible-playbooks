@@ -1,7 +1,4 @@
 ---
-- name: restart nginx
-  include: restart_nginx.yml
-
 - name: save iptables
   include: save_iptables.yml
 

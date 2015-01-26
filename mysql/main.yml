@@ -1,0 +1,7 @@
+---
+- hosts: all
+  sudo: yes
+  vars: 
+    - mysql_root_password: yaaQKXsh9XAkgqb
+  roles:
+    - db
