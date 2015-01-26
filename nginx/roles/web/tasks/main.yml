@@ -1,7 +1,13 @@
 ---
 - name: update cache
   apt: update_cache=yes
-  
+
+- name: open port 80
+  command: /sbin/iptables -I INPUT 1 -p tcp --dport http -j ACCEPT
+  notify:
+    - save iptables
+    - reload firewall
+    
 - name: install nginx
   apt: name={{ item }} state=present
   with_items:

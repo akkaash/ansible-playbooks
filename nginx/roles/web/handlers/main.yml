@@ -1,3 +1,9 @@
 ---
 - name: restart nginx
   service: name=nginx state=restarted
+
+- name: save iptables
+  command: iptables-save
+
+- name: reload firewall
+  command: ufw reload
