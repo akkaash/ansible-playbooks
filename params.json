@@ -1,1 +1,1 @@
-{"name":"Ansible-playbooks","tagline":"Ansible Playbooks","body":"### Ansible Playbooks","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
+{"name":"Ansible-playbooks","tagline":"Ansible Playbooks","body":"# Ansible Playbooks\r\n\r\nMy work on using Ansible to configure different machines. \r\n\r\nAll of these have been tested on Ubuntu Precise Pangolin 64-bit. \r\n\r\nMay in the future decide to support other distros. ","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
